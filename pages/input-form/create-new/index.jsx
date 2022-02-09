@@ -1,9 +1,10 @@
 import React, { useState } from "react"
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import Script from 'next/script'
 
 export default function InputFormCreation() {
-  const [state, setState] = useState({
+
+  const [form, setForm] = useState({
     fname: "",
     cname: "",
     tarea: "",
@@ -11,12 +12,12 @@ export default function InputFormCreation() {
     locale: "",
     labelPos: "",
     fontFam: "",
-    fSize: ""
+    fontsize: ""
   })
 
   const handleChange = e => {
-    setState({
-      ...state,
+    setForm({
+      ...form,
       [e.target.name]: e.target.value,
     })
   }
@@ -32,11 +33,11 @@ export default function InputFormCreation() {
           <div className="col-4 mx-2">
 
             <div className="input-group my-3">
-              <label className="input-group-text" for="formName">Form Name</label>
+              <label className="input-group-text" htmlFor="formName">Form Name</label>
               <input type="text"
                 className="form-control"
                 name="fname"
-                value={state.fname}
+                value={form.fname}
                 onChange={handleChange}
                 placeholder="Write your form name here"
                 aria-label="Username"
@@ -45,10 +46,10 @@ export default function InputFormCreation() {
             </div>
 
             <div className="input-group mb-3">
-              <label className="input-group-text" for="category">Category</label>
+              <label className="input-group-text" htmlFor="category">Category</label>
               <input type="text"
                 name="cname"
-                value={state.cname}
+                value={form.cname}
                 onChange={handleChange}
                 className="form-control"
                 placeholder="Write your category name here"
@@ -56,13 +57,13 @@ export default function InputFormCreation() {
             </div>
 
             <div className="input-group mb-3">
-              <span for="textarea" className="input-group-text">Comments</span>
+              <span htmlFor="textarea" className="input-group-text">Comments</span>
               <textarea className="form-control"
                 placeholder="Leave a comment here"
                 id="textarea"
                 aria-label="With textarea"
                 name="tarea"
-                value={state.tarea}
+                value={form.tarea}
                 onChange={handleChange}></textarea>
             </div>
           </div>
@@ -70,11 +71,11 @@ export default function InputFormCreation() {
           <div className="col-4 mx-2">
             <div className="input-group my-3">
 
-              <label className="input-group-text" for="languageGroup">Language</label>
+              <label className="input-group-text" htmlFor="languageGroup">Language</label>
               <select className="form-select"
                 id="languageGroup"
                 name="language"
-                value={state.language}
+                value={form.language}
                 onChange={handleChange}>
                 <option selected>Choose One</option>
                 <option value="日本語">日本語</option>
@@ -84,11 +85,11 @@ export default function InputFormCreation() {
 
             </div>
             <div className="input-group mb-3">
-              <label className="input-group-text" for="locationGroup">Location</label>
+              <label className="input-group-text" htmlFor="locationGroup">Location</label>
               <select className="form-select"
                 id="locationGroup"
                 name="locale"
-                value={state.locale}
+                value={form.locale}
                 onChange={handleChange}
               >
                 <option selected>Choose One</option>
@@ -99,11 +100,11 @@ export default function InputFormCreation() {
             </div>
 
             <div className="input-group mb-3">
-              <label className="input-group-text" for="labelGroup">Label Position</label>
+              <label className="input-group-text" htmlFor="labelGroup">Label Position</label>
               <select className="form-select"
                 id="labelGroup"
                 name="labelPos"
-                value={state.labelPos}
+                value={form.labelPos}
                 onChange={handleChange}>
                 <option selected>Choose One</option>
                 <option value="上">上</option>
@@ -114,7 +115,7 @@ export default function InputFormCreation() {
             </div>
 
             <div className="input-group mb-3">
-              <label className="input-group-text" for="fontFamily">Font Family</label>
+              <label className="input-group-text" htmlFor="fontFamily">Font Family</label>
               <input type="text"
                 className="form-control"
                 placeholder="Please type a font here"
@@ -122,23 +123,22 @@ export default function InputFormCreation() {
                 aria-describedby="basic-addon1"
                 id="fontFamily"
                 name="fontFam"
-                value={state.fontFam}
+                value={form.fontFam}
                 onChange={handleChange} />
             </div>
 
             <div className="input-group mb-3">
-              <label className="input-group-text" for="fontNumber">Font Size</label>
+              <label className="input-group-text" htmlFor="fontNumber">Font Size</label>
               <input type="number"
                 className="form-control"
                 placeholder="Please type or select a number"
                 aria-label="Username"
                 aria-describedby="basic-addon1"
                 id="fontNumber"
-                value="12"
                 min="1"
                 max="100"
-                name="fSize"
-                value={state.fSize}
+                name="fontsize"
+                value={form.fontsize}
                 onChange={handleChange} />
             </div>
 
@@ -151,18 +151,18 @@ export default function InputFormCreation() {
           <button type="submit" className="btn btn-secondary">Save</button>
         </div>
       </form>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      <Script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
+        crossOrigin="anonymous"></Script>
 
-      <h5>Form Name is: {state.fname}</h5>
-      <h5>Category Name is: {state.cname}</h5>
-      <h5>Comments are: {state.tarea}</h5>
-      <h5>Language Selected: {state.language}</h5>
-      <h5>Location Selected: {state.locale}</h5>
-      <h5>Position Selected: {state.labelPos}</h5>
-      <h5>The Font is: {state.fontFam}</h5>
-      <h5>The Font Size is: {state.fSize}</h5>
+      <h5>Form Name is: {form.fname}</h5>
+      <h5>Category Name is: {form.cname}</h5>
+      <h5>Comments are: {form.tarea}</h5>
+      <h5>Language Selected: {form.language}</h5>
+      <h5>Location Selected: {form.locale}</h5>
+      <h5>Position Selected: {form.labelPos}</h5>
+      <h5>The Font is: {form.fontFam}</h5>
+      <h5>The Font Size is: {form.fontsize}</h5>
     </div></>
   );
 }

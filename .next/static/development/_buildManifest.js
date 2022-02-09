@@ -1,1 +1,0 @@
-self.__BUILD_MANIFEST = {__rewrites:{beforeFiles:[],afterFiles:[],fallback:[]},"/_error":["static\u002Fchunks\u002Fpages\u002F_error.js"],"/input-form/create-new":["static\u002Fchunks\u002Fpages\u002Finput-form\u002Fcreate-new.js"],sortedPages:["\u002F_app","\u002F_error","\u002Finput-form\u002Fcreate-new"]};self.__BUILD_MANIFEST_CB && self.__BUILD_MANIFEST_CB()

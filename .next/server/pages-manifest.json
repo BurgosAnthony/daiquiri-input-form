@@ -1,6 +1,8 @@
 {
   "/_app": "pages/_app.js",
+  "/input-form/create-new": "pages/input-form/create-new.html",
+  "/input-form": "pages/input-form.html",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/input-form/create-new": "pages/input-form/create-new.js"
+  "/404": "pages/404.html"
 }
