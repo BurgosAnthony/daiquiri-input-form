@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;200;300;400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: calc(100vh - 75px);
+  height: fit-content;
+  font-size: 18px;
+}
+
+html {
+  height: fit-content;
+  width: 100%;
+}
+
+body {
+  height: fit-content;
+}
+
+a {
+  cursor: default;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Chromeのオートフィルでスタイルが変わるのを防ぐ */
+input:-webkit-autofill {
+  transition: background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s, font-size 5000s ease-in-out 0s !important;
+}
+
+#wrapper {
+  min-height: 100vh;
+  display: flex;
+  background-color: var(--main);
+  color: var(--text-main);
+  overflow-wrap: break-word;
+}
+
+#content {
+  height: 100%;
+  width: 100%;
+  min-width: 0;
+}
+
+#main-content {
+  flex-grow: 1;
+  /* margin: 16px; */
+  padding: 0 8px 16px;
+  font-weight: 300;
+  /* overflow-x, yはひとつ付与すると、もう片方は自動的にautoになる */
+  /* 親と子でそれぞれoverflowをつけるのは不可能(子に上書きされるため) */
+  /* overflow-x: auto; */
+}
+
+#main-content, table {
+  color: var(--text-main);
+}
+
+#page-title {
+  margin: 0 8px 8px;
+  padding: 8px 16px;
+  border-bottom: 1px solid var(--header);
+  font-weight: 200;
+  font-size: 18px;
+}
+
+#breadcrumb {
+  height: 30px;
+  margin: 5px 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-weight: 200;
+  font-size: 15px;
+  color: var(--icon-main);
+}
+
+#breadcrumb p {
+  margin: 5px;
+}
+
+#breadcrumb p.current {
+  color: var(--accent);
+}
+
+#setting {
+  position: relative;
+  min-height: calc(100vh - 265px);
+  padding-bottom: 60px;
+}
+.setting {
+  position: relative;
+  min-height: calc(100vh - 265px);
+  padding-bottom: 60px;
+}
+
+#setting-no-title {
+  position: relative;
+  min-height: calc(100vh - 200px);
+  padding-bottom: 60px;
+}
+
+#setting-with-stepper {
+  position: relative;
+  min-height: calc(100vh - 360px);
+  padding-bottom: 60px;
+}
+
+
+#setting-table {
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#setting-table tr {
+  margin: 10px;
+  height: 60px;
+}
+
+#setting-table .name {
+  width: 150px;
+  font-weight: 200;
+}
+
+#setting-table .form {
+  max-width: 480px;
+  font-weight: 300;
+}
+
+#setting-table .required {
+  color: var(--error);
+  font-size: 24px;
+}
+
+#setting-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: var(--main);
+}
+
+#not-found {
+  width: 100%;
+  height: 100%;
+  padding: 32px;
+  text-align: center;
+}
+
+#not-found > #title {
+  margin: 16px;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+#not-found > #go-back {
+  margin: 16px;
+  font-size: 18px;
+  font-weight: 200;
+}
+
+.left-middle {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 10px;
+}
+
+/* 未使用 */
+.center-middle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.vertical-top {
+  vertical-align: top;
+}
+
+.scroll-box {
+  overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scroll-box::-webkit-scrollbar {
+  display: none;
+}
+
+.alert {
+  margin: 8px;
+}
+
+.chart-selector {
+  margin: 0px 50px 0px 50px;
+  height: 60px;
+}
+
+.data-charts {
+  margin: 10px 30px 10px 30px;
+  height: 400px;
+  width: 90%;
+}
+
+.data-table {
+  margin: 8px;
+}
+
+.category-tag {
+  margin: 5px 0px;
+  height: 25px;
+  background-color: var(--accent);
+  border-radius: 5px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.clickable {
+  cursor: pointer;
+}
+.clickable:hover {
+  filter: brightness(0.95);
+}
+
+.fade-enter{
+   opacity: 0;
+}
+.fade-exit{
+   opacity: 1;
+}
+.fade-enter-active{
+   opacity: 1;
+}
+.fade-exit-active{
+   opacity: 0;
+}
+.fade-enter-active,
+.fade-exit-active{
+   transition: opacity 500ms;
+}
