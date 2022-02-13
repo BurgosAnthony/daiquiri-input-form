@@ -15,6 +15,14 @@ export default function InputFormCreation() {
     fontsize: ""
   })
 
+  const submitForm = e => {
+    setForm({
+      ...form
+    })
+    alert(`The form name is: ${form.fname} and the font size is: ${form.fontsize}`)
+    e.preventDefault()
+  }
+
   const handleChange = e => {
     setForm({
       ...form,
@@ -28,7 +36,7 @@ export default function InputFormCreation() {
       <div className="d-flex justify-content-center">
         <h1>Input Form - Basic Setting</h1>
       </div>
-      <form action="" >
+      <form onSubmit={submitForm}>
         <div className="row justify-content-center">
           <div className="col-4 mx-2">
 
@@ -77,7 +85,7 @@ export default function InputFormCreation() {
                 name="language"
                 value={form.language}
                 onChange={handleChange}>
-                <option selected>Choose One</option>
+                <option >Choose One</option>
                 <option value="日本語">日本語</option>
                 <option value="English">English</option>
                 <option value="Español">Español</option>
@@ -148,7 +156,7 @@ export default function InputFormCreation() {
 
         <div className="d-flex justify-content-center mt-3">
           <button type="button" className="btn btn-outline-secondary me-3">Cancel</button>
-          <button type="submit" className="btn btn-secondary">Save</button>
+          <button className="btn btn-secondary">Save</button>
         </div>
       </form>
       <Script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
