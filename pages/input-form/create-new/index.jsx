@@ -1,20 +1,21 @@
-import React, { useState } from "react"
+import React, { useState, createContext } from "react"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Script from 'next/script'
+import Link from 'next/link'
 
 
-export default function InputFormCreation() {
+export default function InputFormCreation({ form, handleChange }) {
 
-  const [form, setForm] = useState({
-    fname: "",
-    cname: "",
-    tarea: "",
-    language: "",
-    locale: "",
-    labelPos: "",
-    fontFam: "",
-    fontsize: ""
-  })
+  // const [form, setForm] = useState({
+  //   fname: "",
+  //   cname: "",
+  //   tarea: "",
+  //   language: "",
+  //   locale: "",
+  //   labelPos: "",
+  //   fontFam: "",
+  //   fontsize: ""
+  // })
 
   // Handles the submit e on form submit.
   const handleSubmit = async (e) => {
@@ -62,12 +63,7 @@ export default function InputFormCreation() {
     alert(` ${result.data}`)
   }
 
-  const handleChange = e => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
-    })
-  }
+
 
   // 
   // setForm({
@@ -215,6 +211,17 @@ export default function InputFormCreation() {
       <h5>Position Selected: {form.labelPos}</h5>
       <h5>The Font is: {form.fontFam}</h5>
       <h5>The Font Size is: {form.fontsize}</h5>
+
+
+
+      <Link
+        href={{
+          pathname: "create-new/second-page",
+          state: form
+        }}
+      >
+        <a>2nd Form</a>
+      </Link>
     </div></>
   );
 }
