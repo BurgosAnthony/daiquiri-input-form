@@ -11,7 +11,22 @@ function MyApp({ Component, pageProps }) {
     locale: "",
     labelPos: "",
     fontFam: "",
-    fontsize: ""
+    fontsize: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    companyName: "",
+    department: "",
+    jobTitle: "",
+    radioStacked: "",
+    label: "",
+    field: "",
+    fieldType: "",
+    labelWidth: "",
+    fieldHeight: "",
+    placeholder: "",
+    defaultValue: "",
+    maxLength: ""
   })
 
   const handleChange = e => {

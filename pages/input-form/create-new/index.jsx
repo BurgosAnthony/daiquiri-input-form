@@ -1,4 +1,4 @@
-import React, { useState, createContext } from "react"
+import React from "react"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Script from 'next/script'
 import Link from 'next/link'
@@ -6,77 +6,12 @@ import Link from 'next/link'
 
 export default function InputFormCreation({ form, handleChange }) {
 
-  // const [form, setForm] = useState({
-  //   fname: "",
-  //   cname: "",
-  //   tarea: "",
-  //   language: "",
-  //   locale: "",
-  //   labelPos: "",
-  //   fontFam: "",
-  //   fontsize: ""
-  // })
-
-  // Handles the submit e on form submit.
-  const handleSubmit = async (e) => {
-    // Stop the form from submitting and refreshing the page.
-    e.preventDefault()
-
-    // Get data from the form.
-    // In this table, the Left side is the key and the right is the value
-    // Together, the key-value pair will make an object
-    const data = {
-      formName: e.target.fname.value,
-      categoryName: e.target.cname.value,
-      textArea: e.target.tarea.value,
-      language: e.target.language.value,
-      locale: e.target.locale.value,
-      labelPosition: e.target.labelPos.value,
-      fontFamily: e.target.fontFam.value,
-      fontSize: e.target.fontsize.value,
-    }
-
-    // Send the data to the server in JSON format.
-    const JSONdata = JSON.stringify(data)
-
-    // API endpoint where we send form data.
-    const endpoint = '/api/form'
-
-    // Form the request for sending data to the server.
-    const options = {
-      // The method is POST because we are sending data.
-      method: 'POST',
-      // Tell the server we're sending JSON.
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      // Body of the request is the JSON data we created above.
-      body: JSONdata,
-    }
-
-    // Send the form data to our forms API on Vercel and get a response.
-    const response = await fetch(endpoint, options)
-
-    // Get the response data from server as JSON.
-    // If server returns the name submitted, that means the form works.
-    const result = await response.json()
-    alert(` ${result.data}`)
-  }
-
-
-
-  // 
-  // setForm({
-  //   ...form
-  // })
-  // alert(`The form name is: ${form.fname} and the font size is: ${form.fontsize}`)
-
   return (
     <><div className="App">
       <div className="d-flex justify-content-center">
         <h1>Input Form - Basic Setting</h1>
       </div>
-      <form onSubmit={handleSubmit}>
+      <form >
         <div className="row justify-content-center">
           <div className="col-4 mx-2">
 
@@ -196,7 +131,9 @@ export default function InputFormCreation({ form, handleChange }) {
 
         <div className="d-flex justify-content-center mt-3">
           <button type="button" className="btn btn-outline-secondary me-3">Cancel</button>
-          <button className="btn btn-secondary">Save</button>
+          <Link href="create-new/second-page">
+            <a className="btn btn-secondary"> Next </a>
+          </Link>
         </div>
       </form>
       <Script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -211,17 +148,6 @@ export default function InputFormCreation({ form, handleChange }) {
       <h5>Position Selected: {form.labelPos}</h5>
       <h5>The Font is: {form.fontFam}</h5>
       <h5>The Font Size is: {form.fontsize}</h5>
-
-
-
-      <Link
-        href={{
-          pathname: "create-new/second-page",
-          state: form
-        }}
-      >
-        <a>2nd Form</a>
-      </Link>
     </div></>
   );
 }
